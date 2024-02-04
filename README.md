@@ -1,4 +1,4 @@
-# To-Do-List
+# React-Quiz
 
 - Live Site URL: [https://kabrax01.github.io/React_Quiz/](https://kabrax01.github.io/React_Quiz/)
 

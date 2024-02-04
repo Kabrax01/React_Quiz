@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useReducer, useEffect } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Loader from "./Loader";
@@ -10,6 +10,7 @@ import Progress from "./Progress";
 import FinishScreen from "./FinishScreen";
 import Footer from "./Footer";
 import Timer from "./Timer";
+import data from "./questions.json";
 
 const SEC_PER_QUESTION = 30;
 
@@ -93,26 +94,32 @@ export default function App() {
   const numQuestions = questions.length;
   const maxPossiblePoints = questions.reduce((acc, cur) => acc + cur.points, 0);
 
+  // ONLY FOR FAKE API PURPOSE
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     dispatch({ type: "loading" });
+
+  //     try {
+  //       const res = await fetch("http://localhost:8000/questions");
+
+  //       if (!res.ok) throw new Error("Bad server response");
+  //       const data = await res.json();
+
+  //       dispatch({ type: "dataRecived", payload: data });
+  //     } catch (error) {
+  //       dispatch({ type: "dataFailed" });
+  //       console.error(error);
+  //     } finally {
+  //       dispatch({ type: "ready" });
+  //     }
+  //   }
+
+  //   fetchData();
+  // }, []);
+
   useEffect(() => {
-    async function fetchData() {
-      dispatch({ type: "loading" });
-
-      try {
-        const res = await fetch("http://localhost:8000/questions");
-
-        if (!res.ok) throw new Error("Bad server response");
-        const data = await res.json();
-
-        dispatch({ type: "dataRecived", payload: data });
-      } catch (error) {
-        dispatch({ type: "dataFailed" });
-        console.error(error);
-      } finally {
-        dispatch({ type: "ready" });
-      }
-    }
-
-    fetchData();
+    dispatch({ type: "dataRecived", payload: data.questions });
   }, []);
 
   return (

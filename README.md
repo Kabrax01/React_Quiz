@@ -7,7 +7,7 @@
 <img src="./src/img/welcome_screen.png" width="500">
 <img src="./src/img/answer.png" width="500">
 
-## General inforation
+## General information
 
 Quiz app with time restrictions, score counter, and minimalistic interface for testing knowledge about React framework. It uses firebase to store questions, enabling future expanding for multi topics selection
 
